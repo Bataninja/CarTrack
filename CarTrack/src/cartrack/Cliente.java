@@ -2,7 +2,7 @@ package cartrack;
 import java.util.ArrayList;
 
 /**
- *  Clase para el objeto cliente
+ *  Clase para el objeto cliente con métodos básicos
  */
 public class Cliente {
     
@@ -13,8 +13,7 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private String correo;
-    //Guarda las placas de los carros de los que este cliente es dueño
-    private ArrayList<String> listaCarros;
+    private ArrayList<Vehiculo> listaVehiculos;
     //Constructor
     public Cliente(int idCliente, int cedula, String nombre, String direccion, String telefono, String correo, ArrayList listaCarros) {
         this.idCliente = idCliente;
@@ -23,15 +22,15 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
-        this.listaCarros = listaCarros;
+        this.listaVehiculos = listaCarros;
     }
 
-    public ArrayList<String> getListaCarros() {
-        return listaCarros;
+    public ArrayList<Vehiculo> getListaCarros() {
+        return listaVehiculos;
     }
-
-    public void setListaCarros(ArrayList<String> listaCarros) {
-        this.listaCarros = listaCarros;
+    
+    public void setListaCarros(ArrayList<Vehiculo> listaCarros) {
+        this.listaVehiculos = listaCarros;
     }
 
     public int getIdCliente() {
