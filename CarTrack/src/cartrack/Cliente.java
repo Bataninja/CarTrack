@@ -45,7 +45,7 @@ public class Cliente {
     
     public boolean eliminarVehiculoCliente(String placa) {
         for(Vehiculo vehiculo : listaVehiculos){
-            if (vehiculo.getPlaca().equalsIgnoreCase(nombre)){
+            if (vehiculo.getPlaca().equalsIgnoreCase(placa)){
                 listaVehiculos.remove(vehiculo);
                 return true;
             }       
