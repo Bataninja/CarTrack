@@ -34,6 +34,10 @@ public class Licencia {
         this.idCliente = idCliente;
     }
 
+    public int getIdLicencia() {
+        return idLicencia;
+    }
+
     
     public String getFechaExpedicion() {
         return fechaExpedicion;
