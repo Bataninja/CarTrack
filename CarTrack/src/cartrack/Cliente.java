@@ -55,11 +55,11 @@ public class Cliente {
         return false;
     }
 
-    public ArrayList<Vehiculo> getListaCarros() {
+    public ArrayList<Vehiculo> getListaVehiculos() {
         return listaVehiculos;
     }
     
-    public void setListaCarros(ArrayList<Vehiculo> listaVehiculos) {
+    public void setListaVehiculos(ArrayList<Vehiculo> listaVehiculos) {
         this.listaVehiculos = listaVehiculos;
     }
     
