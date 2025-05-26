@@ -21,6 +21,7 @@ public class Vehiculo {
     private String marca;
     private ArrayList<Servicio> listaServicios;
     private ArrayList<Seguro> listaSeguros;
+    private ArrayList<TecnoMecanica> listaTecnoMecanicas;
     
     public Vehiculo(String placa, String modelo, String color, String tipoVehiculo, String estado, String marca) {
         this.placa = placa;
@@ -32,6 +33,36 @@ public class Vehiculo {
         this.idDueño = 0;
         this.listaServicios = new ArrayList<>();
         this.listaSeguros = new ArrayList<>();
+        this.listaTecnoMecanicas = new ArrayList<>();
+    }
+    
+    public ArrayList<TecnoMecanica> getListaTecnoMecanicas() {
+        return listaTecnoMecanicas;
+    }
+    
+    public void añadirTecnoMecanica(TecnoMecanica nuevo) {
+        listaTecnoMecanicas.add(nuevo);
+        nuevo.setPlaca(placa);
+    }
+    
+    public void añadirTecnoMecanicas(ArrayList<TecnoMecanica> listaTecnoMecanicas) {
+        for(TecnoMecanica tecno : listaTecnoMecanicas){
+            añadirTecnoMecanica(tecno);
+        }
+    }
+    
+    public boolean eliminarTecnoMecanica(int idTecnoMecanica) {
+        for(TecnoMecanica tecno : listaTecnoMecanicas){
+            if (tecno.getIdTecno() == idTecnoMecanica){
+                listaSeguros.remove(tecno);
+                return true;
+            }       
+        }
+        return false;
+    }
+
+    public void setListaTecnoMecanica(ArrayList<TecnoMecanica> listaTecnoMecanica) {
+        this.listaTecnoMecanicas = listaTecnoMecanica;
     }
     
     public ArrayList<Seguro> getListaSeguros() {
@@ -62,8 +93,6 @@ public class Vehiculo {
     public void setListaSeguros(ArrayList<Seguro> listaSeguros) {
         this.listaSeguros = listaSeguros;
     }
-
-
     
     public ArrayList<Servicio> getListaServicios() {
         return listaServicios;
