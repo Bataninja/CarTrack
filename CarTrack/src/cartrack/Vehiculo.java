@@ -20,6 +20,7 @@ public class Vehiculo {
     private String estado;
     private String marca;
     private ArrayList<Servicio> listaServicios;
+    private ArrayList<Seguro> listaSeguros;
     
     public Vehiculo(String placa, String modelo, String color, String tipoVehiculo, String estado, String marca) {
         this.placa = placa;
@@ -30,8 +31,40 @@ public class Vehiculo {
         this.marca = marca;
         this.idDueño = 0;
         this.listaServicios = new ArrayList<>();
+        this.listaSeguros = new ArrayList<>();
+    }
+    
+    public ArrayList<Seguro> getListaSeguros() {
+        return listaSeguros;
+    }
+    
+    public void añadirSeguro(Seguro nuevo) {
+        listaSeguros.add(nuevo);
+        nuevo.setPlaca(placa);
+    }
+    
+    public void añadirSeguros(ArrayList<Seguro> listaSeguros) {
+        for(Seguro seguro : listaSeguros){
+            añadirSeguro(seguro);
+        }
+    }
+    
+    public boolean eliminarSeguro(int idSeguro) {
+        for(Seguro seguro : listaSeguros){
+            if (seguro.getIdSeguro() == idSeguro){
+                listaSeguros.remove(seguro);
+                return true;
+            }       
+        }
+        return false;
     }
 
+    public void setListaSeguros(ArrayList<Seguro> listaSeguros) {
+        this.listaSeguros = listaSeguros;
+    }
+
+
+    
     public ArrayList<Servicio> getListaServicios() {
         return listaServicios;
     }

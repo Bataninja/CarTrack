@@ -6,7 +6,7 @@ package cartrack;
     *  idCliente = 0 es para no asignar el id cleinte al crearse el objeto, 
     *  al añadirse a la lista de licencias del cliente 
     *  se actualiza automaticamente en la clase Cliente.
-    */
+*/
 
 public class Licencia {
     
