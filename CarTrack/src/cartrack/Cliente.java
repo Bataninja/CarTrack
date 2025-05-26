@@ -13,6 +13,7 @@ public class Cliente {
     private String telefono;
     private String correo;
     private ArrayList<Vehiculo> listaVehiculos;
+    private ArrayList<Licencia> listaLicencias;
     
     public Cliente(int idCliente, int cedula, String nombre, String direccion, String telefono, String correo) {
         this.idCliente = idCliente;
@@ -21,7 +22,37 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
-        listaVehiculos = new ArrayList<>();
+        this.listaVehiculos = new ArrayList<>();
+        this.listaLicencias = new ArrayList<>();
+    }
+    
+    public ArrayList<Licencia> getListaLicencias() {
+        return listaLicencias;
+    }
+    
+    public void setListaLicencias(ArrayList<Licencia> listaLicencias) {
+        this.listaLicencias = listaLicencias;
+    }
+    
+    public void añadirLicencia(Licencia nuevo) {
+        listaLicencias.add(nuevo);
+        nuevo.setIdCliente(idCliente);
+    }
+    
+    public void añadirLicencias(ArrayList<Licencia> listaLicencias) {
+        for(Licencia licencia : listaLicencias){
+            añadirLicencia(licencia);
+        }
+    }
+    
+    public boolean eliminarLicencia(int idLicencia) {
+        for(Licencia licencia : listaLicencias){
+            if (licencia.getIdLicencia() == idLicencia){
+                listaLicencias.remove(licencia);
+                return true;
+            }       
+        }
+        return false;
     }
 
     public ArrayList<Vehiculo> getListaCarros() {
