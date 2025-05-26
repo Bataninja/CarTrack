@@ -14,7 +14,7 @@ public class Cliente {
     private String correo;
     private ArrayList<Vehiculo> listaVehiculos;
     
-    public Cliente(int idCliente, int cedula, String nombre, String direccion, String telefono, String correo, ArrayList listaCarros) {
+    public Cliente(int idCliente, int cedula, String nombre, String direccion, String telefono, String correo) {
         this.idCliente = idCliente;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -40,7 +40,6 @@ public class Cliente {
     public void añadirVehiculo(ArrayList<Vehiculo> listaVehiculos) {
         for(Vehiculo vehiculo : listaVehiculos){
             añadirVehiculo(vehiculo);
-            vehiculo.setIdDueño(cedula);
         }
     }
     
