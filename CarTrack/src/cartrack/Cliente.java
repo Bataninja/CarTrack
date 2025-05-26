@@ -6,15 +6,14 @@ import java.util.ArrayList;
  */
 public class Cliente {
     
-    // Atributos base
-    private int idCliente;
+    private final int idCliente;
     private int cedula;
     private String nombre;
     private String direccion;
     private String telefono;
     private String correo;
     private ArrayList<Vehiculo> listaVehiculos;
-    //Constructor
+    
     public Cliente(int idCliente, int cedula, String nombre, String direccion, String telefono, String correo, ArrayList listaCarros) {
         this.idCliente = idCliente;
         this.cedula = cedula;
@@ -22,7 +21,7 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.correo = correo;
-        this.listaVehiculos = listaCarros;
+        listaVehiculos = new ArrayList<>();
     }
 
     public ArrayList<Vehiculo> getListaCarros() {
@@ -32,13 +31,31 @@ public class Cliente {
     public void setListaCarros(ArrayList<Vehiculo> listaCarros) {
         this.listaVehiculos = listaCarros;
     }
-
+    
+    public void añadirVehiculo(Vehiculo nuevo) {
+        listaVehiculos.add(nuevo);
+        nuevo.setIdDueño(cedula);
+    }
+    
+    public void añadirVehiculo(ArrayList<Vehiculo> listaVehiculos) {
+        for(Vehiculo vehiculo : listaVehiculos){
+            añadirVehiculo(vehiculo);
+            vehiculo.setIdDueño(cedula);
+        }
+    }
+    
+    public boolean eliminarVehiculoCliente(String placa) {
+        for(Vehiculo vehiculo : listaVehiculos){
+            if (vehiculo.getPlaca().equalsIgnoreCase(nombre)){
+                listaVehiculos.remove(vehiculo);
+                return true;
+            }       
+        }
+        return false;
+    }
+    
     public int getIdCliente() {
         return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
     }
 
     public int getCedula() {

@@ -1,40 +1,69 @@
 package cartrack;
+import java.util.ArrayList;
 
 /**
  *  Clase para el objeto vehiculo con métodos básicos
+ * 
+ *  idDueño = 0 es para no asignar dueño al crearse el objeto, 
+ *  al añadirse a la lista de vehiculos del cliente dueño
+ *  se actualiza automaticamente en la clase Cliente.
  */
+
+
 public class Vehiculo {
 
-    // Atributos base
-    private String placa;
+    private final String placa;
     private int idDueño;
     private String modelo;
     private String color;
     private String tipoVehiculo;
     private String estado;
     private String marca;
+    private ArrayList<Servicio> listaServicios;
     
-    public Vehiculo(String placa, int idDueño, String modelo, String color, String tipoVehiculo, String estado, String marca) {
+    public Vehiculo(String placa, String modelo, String color, String tipoVehiculo, String estado, String marca) {
         this.placa = placa;
-        this.idDueño = idDueño;
         this.modelo = modelo;
         this.color = color;
         this.tipoVehiculo = tipoVehiculo;
         this.estado = estado;
         this.marca = marca;
+        this.idDueño = 0;
+        this.listaServicios = new ArrayList<>();
+    }
+
+    public ArrayList<Servicio> getListaServicios() {
+        return listaServicios;
     }
     
-    public Vehiculo(String placa, int idDueño) {
-        this.placa = placa;
-        this.idDueño = 0;
+    public void añadirServicio(Servicio nuevo) {
+        listaServicios.add(nuevo);
+        nuevo.setPlaca(placa);
+    }
+    
+    public void añadirServicio(ArrayList<Servicio> listaServicios) {
+        for(Servicio servicio : listaServicios){
+            añadirServicio(servicio);
+        }
+    }
+    
+    public boolean eliminarServicio(int idServicio) {
+        for(Servicio servicio : listaServicios){
+            if (servicio.getIdServicio() == idServicio){
+                listaServicios.remove(servicio);
+                return true;
+            }       
+        }
+        return false;
     }
 
+    public void setListaServicios(ArrayList<Servicio> listaServicios) {
+        this.listaServicios = listaServicios;
+    }
+
+    
     public String getPlaca() {
         return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
     }
 
     public int getIdDueño() {
