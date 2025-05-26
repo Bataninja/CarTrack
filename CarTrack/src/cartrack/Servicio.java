@@ -8,6 +8,8 @@ public class Servicio {
     *  placa = "" es para no asignar la placa al crearse el objeto, 
     *  al añadirse a la lista de servicios del vehiculo 
     *  se actualiza automaticamente en la clase Servicio.
+    * 
+    *  Se debe indicar el ID del trabajador para validacion futura
     */
 
     private final int idServicio;
